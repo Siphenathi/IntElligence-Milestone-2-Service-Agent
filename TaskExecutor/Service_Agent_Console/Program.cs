@@ -11,8 +11,7 @@ namespace Service_Agent_Console
     {
         public static void Main(string[] args)
         {
-            var hostConfigs = new HostConfiguration();
-            hostConfigs.UrlReservations.CreateAutomatically = true;
+            var hostConfigs = new HostConfiguration {UrlReservations = {CreateAutomatically = true}};
 
             var uri = new Uri("http://localhost:1234");
             var host = new NancyHost(hostConfigs, uri);
