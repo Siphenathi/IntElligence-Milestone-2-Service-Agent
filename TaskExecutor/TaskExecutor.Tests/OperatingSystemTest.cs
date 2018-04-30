@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
-using TaskExecutor.Boundary;
-using TaskExecutor.MachineInformation;
 using TaskExecutor.MachineInformation.TaskExecutorLibrary;
 
 namespace TaskExecutor.Tests
@@ -18,23 +16,17 @@ namespace TaskExecutor.Tests
         public void GetOperatingSystem_GivenOsCommand_ShouldReturnComputerOperatingSystem()
         {
             //Arrange
-            var os = CreateOperatingSystem();
-            var environment = CreateEnvironment();
+            OperatingSystems result = CreateMachineInformation();
             //Act
-            var actual = os.GetOperatingSystem();
+            var actual = result.GetOperatingSystem();
             //Assert
-            var expected = environment.GetOsVersion();
+            var expected = "Microsoft Windows NT 10.0.16299.0";
             Assert.AreEqual(expected, actual);
         }
 
-        public IOperatingSystem CreateOperatingSystem()
+        private static OperatingSystems CreateMachineInformation()
         {
             return new OperatingSystems();
-        }
-
-        public IEnvironmentHandler CreateEnvironment()
-        {
-            return new EnvironmentHandler();
         }
     }
 }

@@ -1,10 +1,9 @@
 ﻿namespace TaskExecutor.Boundary
 {
-    public interface IEnvironmentHandler
+    public interface ITaskExecutorEnvironmentHandler
     {
         string GetIpAddress();
         string GetHostName();
         string GetFullyQualifiedHostName();
-        string GetOsVersion();
     }
 }

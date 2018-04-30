@@ -50,8 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HealthModule.cs" />
-    <Compile Include="HostNameModule.cs" />
+    <Compile Include="HostnameModule.cs" />
+    <Compile Include="IpModule.cs" />
+    <Compile Include="OsModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScriptModule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -61,12 +64,12 @@
       <Project>{F8415408-4AEA-4585-BB19-8D833BDDBF4D}</Project>
       <Name>ServiceAgent.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TaskExecutor.Boundary\TaskExecutor.Boundary.csproj">
+    <ProjectReference Include="..\TaskExecutor.Boundary\Boundaries.csproj">
       <Project>{BF93D868-EEAB-42A3-B888-F303C83C050D}</Project>
-      <Name>TaskExecutor.Boundary</Name>
+      <Name>Boundaries</Name>
     </ProjectReference>
     <ProjectReference Include="..\TaskExecutor.MachineInformation\TaskExecutor.MachineInformation.csproj">
-      <Project>{9D8CC8BD-70A7-4548-8DC9-A933A507D150}</Project>
+      <Project>{9d8cc8bd-70a7-4548-8dc9-a933a507d150}</Project>
       <Name>TaskExecutor.MachineInformation</Name>
     </ProjectReference>
   </ItemGroup>

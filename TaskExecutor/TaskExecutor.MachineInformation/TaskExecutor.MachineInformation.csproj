@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EnvironmentHandler.cs" />
+    <Compile Include="TaskExecutorEnvironmentHandler.cs" />
     <Compile Include="TaskExecutorLibrary\ComputerName.cs" />
     <Compile Include="TaskExecutorLibrary\FullyQualifiedComputerName.cs" />
     <Compile Include="TaskExecutorLibrary\IpAddress.cs" />
@@ -70,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="TaskExecutorScript\Invalid.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TaskExecutorScript\Empty.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -78,9 +81,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TaskExecutor.Boundary\TaskExecutor.Boundary.csproj">
+    <ProjectReference Include="..\TaskExecutor.Boundary\Boundaries.csproj">
       <Project>{BF93D868-EEAB-42A3-B888-F303C83C050D}</Project>
-      <Name>TaskExecutor.Boundary</Name>
+      <Name>Boundaries</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

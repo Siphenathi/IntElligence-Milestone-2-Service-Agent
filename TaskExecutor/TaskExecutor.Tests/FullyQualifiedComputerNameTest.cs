@@ -31,9 +31,9 @@ namespace TaskExecutor.Tests
             return new FullyQualifiedComputerName();
         }
 
-        public IEnvironmentHandler CreatEnvironmentHandler()
+        public ITaskExecutorEnvironmentHandler CreatEnvironmentHandler()
         {
-            return new EnvironmentHandler();
+            return new TaskExecutorEnvironmentHandler();
         }
     }
 

@@ -16,50 +16,56 @@ namespace TaskExecutor.MachineInformation.TaskExecutorLibrary
     {
         public int RunAndReturnScriptOutput(ScriptOptions opts)
         {
-            
-            Console.WriteLine(GetScriptOutput(opts.PowershellScriptOutput));
+            var command = ReadFile(opts.PowershellScriptOutput);
+            Console.WriteLine(GetScriptOutput(command));
             return Environment.ExitCode;
         }
 
-        public string GetScriptOutput(string path)
+        public string GetScriptOutput(string command)
         {
-            var results = string.Empty;
-            using (var powerShellInstance = PowerShell.Create())
+            string results = string.Empty;
+            using (PowerShell PowerShellInstance = PowerShell.Create())
             {
-                powerShellInstance.AddScript(File.ReadAllText(path));
+                PowerShellInstance.AddScript(command);
 
-                var psOutput = powerShellInstance.Invoke();
+                Collection<PSObject> PSOutput = PowerShellInstance.Invoke();
 
 
-                var errorHandler = HasErrors(powerShellInstance);
+                var errorHandler = HasErrors(PowerShellInstance);
                 if (errorHandler != null && !errorHandler.Equals(""))
                 {
                     return errorHandler;
                 }
-                results = GetListOfFileContents(results, psOutput);
+                results = GetListOfFileContents(results, PSOutput);
             }
 
             return results;
         }
 
+        public string ReadFile(string path)
+        {
+            return File.ReadAllText(path);
+        }
 
-        private static string HasErrors(PowerShell powerShellInstance)
+        private static string HasErrors(PowerShell PowerShellInstance)
         {
             var errorResult = string.Empty;
-            var errorList = powerShellInstance.Streams.Error.ReadAll();
+            Collection<ErrorRecord> errorList = PowerShellInstance.Streams.Error.ReadAll();
 
-            if (errorList == null || errorList.Count <= 0) return errorResult;
-            foreach (var error in errorList)
+            if (errorList != null && errorList.Count > 0)
             {
-                errorResult += error.Exception.Message;
+                foreach (ErrorRecord error in errorList)
+                {
+                    errorResult += error.Exception.Message;
+                }
             }
 
             return errorResult;
         }
 
-        private static string GetListOfFileContents(string results, IEnumerable<PSObject> psOutput)
+        private static string GetListOfFileContents(string results, Collection<PSObject> PSOutput)
         {
-            foreach (var outputItem in psOutput)
+            foreach (PSObject outputItem in PSOutput)
             {
                 results = AppendItemsInList(results, outputItem);
 
@@ -74,6 +80,7 @@ namespace TaskExecutor.MachineInformation.TaskExecutorLibrary
                 results = outputItem.ToString();
 
             }
+
             return results;
         }
 

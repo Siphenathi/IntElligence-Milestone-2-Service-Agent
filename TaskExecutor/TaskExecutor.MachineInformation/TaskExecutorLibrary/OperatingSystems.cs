@@ -7,7 +7,7 @@ using TaskExecutor.Boundary;
 
 namespace TaskExecutor.MachineInformation.TaskExecutorLibrary
 {
-    public class OperatingSystems: IOperatingSystem
+    public class OperatingSystems:IOperatingSystems
     {
         public int RunAndReturnOS()
         {

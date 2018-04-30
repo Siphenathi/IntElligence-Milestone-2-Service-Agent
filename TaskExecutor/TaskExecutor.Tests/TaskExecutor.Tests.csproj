@@ -58,9 +58,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TaskExecutor.Boundary\TaskExecutor.Boundary.csproj">
+    <ProjectReference Include="..\TaskExecutor.Boundary\Boundaries.csproj">
       <Project>{BF93D868-EEAB-42A3-B888-F303C83C050D}</Project>
-      <Name>TaskExecutor.Boundary</Name>
+      <Name>Boundaries</Name>
     </ProjectReference>
     <ProjectReference Include="..\TaskExecutor.MachineInformation\TaskExecutor.MachineInformation.csproj">
       <Project>{9d8cc8bd-70a7-4548-8dc9-a933a507d150}</Project>

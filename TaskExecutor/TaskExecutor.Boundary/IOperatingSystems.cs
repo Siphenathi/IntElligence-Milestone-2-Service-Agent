@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaskExecutor.Boundary
 {
-    public interface IOperatingSystem
+    public interface IOperatingSystems
     {
         string GetOperatingSystem();
     }

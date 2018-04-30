@@ -12,7 +12,7 @@ using TaskExecutor.Boundary;
 
 namespace TaskExecutor.MachineInformation
 {
-    public class EnvironmentHandler:IEnvironmentHandler
+    public class TaskExecutorEnvironmentHandler:ITaskExecutorEnvironmentHandler
     {
 
         public string GetIpAddress()
@@ -39,11 +39,6 @@ namespace TaskExecutor.MachineInformation
             var hostname = GetHostName();
             var hostEntry = Dns.GetHostEntry(hostname);
             return hostEntry.HostName;
-        }
-
-        public string GetOsVersion()
-        {
-            return Environment.OSVersion.ToString();
         }
     }
 }

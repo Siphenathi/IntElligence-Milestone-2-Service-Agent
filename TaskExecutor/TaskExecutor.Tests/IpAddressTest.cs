@@ -33,9 +33,9 @@ namespace TaskExecutor.Tests
             return new IpAddress();
         }
 
-        public IEnvironmentHandler CreatEnvironmentHandler()
+        public ITaskExecutorEnvironmentHandler CreatEnvironmentHandler()
         {
-            return new EnvironmentHandler();
+            return new TaskExecutorEnvironmentHandler();
         }
     }
 }

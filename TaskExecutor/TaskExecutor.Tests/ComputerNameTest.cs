@@ -17,22 +17,22 @@ namespace TaskExecutor.Tests
         public void GetComputerName_GivenHostNameCommand_ShouldReturnComputerName()
         {
             //Arrange
-            var computerName = CreateComputerName();
+            ComputerName result = CreateMachineInformation();
             var environmentHandler = CreatEnvironmentHandler();
             //Act
-            var actual = computerName.GetComputerName();
+            var actual = result.GetComputerName();
             //Assert
             var expected = environmentHandler.GetHostName();
             Assert.AreEqual(expected, actual);
         }
-        private static IComputerName CreateComputerName()
+        private static ComputerName CreateMachineInformation()
         {
             return new ComputerName();
         }
 
-        public IEnvironmentHandler CreatEnvironmentHandler()
+        public ITaskExecutorEnvironmentHandler CreatEnvironmentHandler()
         {
-            return new EnvironmentHandler();
+            return new TaskExecutorEnvironmentHandler();
         }
     }
    

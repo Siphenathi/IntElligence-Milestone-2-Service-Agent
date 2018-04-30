@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceAgent.Console
+namespace ServiceAgent.Model
 {
-    class Class1
+    public class OsModel
     {
+        public string osVersion { get; set; }
     }
 }

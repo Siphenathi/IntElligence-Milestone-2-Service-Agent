@@ -7,16 +7,11 @@ using Nancy;
 
 namespace ServiceAgent.Logic
 {
-    public class HealthModule:NancyModule
+    public class HealthModule : NancyModule
     {
-        public HealthModule():base("/health")
+        public HealthModule()
         {
-            Get["/"] = parameters =>
-            {
-                var b = HttpStatusCode.OK;
-                return b;
-            };
+            Get["/health"] = p =>  HttpStatusCode.OK;
         }
-            
-      }
+    }
 }

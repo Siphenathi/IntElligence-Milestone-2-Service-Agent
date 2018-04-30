@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskExecutor.Tests", "TaskE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskExecutor.MachineInformation", "TaskExecutor.MachineInformation\TaskExecutor.MachineInformation.csproj", "{9D8CC8BD-70A7-4548-8DC9-A933A507D150}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskExecutor.Boundary", "TaskExecutor.Boundary\TaskExecutor.Boundary.csproj", "{BF93D868-EEAB-42A3-B888-F303C83C050D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boundaries", "TaskExecutor.Boundary\Boundaries.csproj", "{BF93D868-EEAB-42A3-B888-F303C83C050D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceAgent.Tests", "ServiceAgent.Tests\ServiceAgent.Tests.csproj", "{76898904-2A49-4D6B-8C94-F4AF924F13DB}"
 EndProject

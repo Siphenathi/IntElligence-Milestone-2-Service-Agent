@@ -8,14 +8,8 @@ using TaskExecutor.Boundary;
 
 namespace TaskExecutor.MachineInformation.TaskExecutorLibrary
 {
-    public class IpAddress:IIpAddress
+    public class IpAddress :IIpAddress
     {
-        protected readonly IComputerName ComputerName;
-
-        public IpAddress()
-        {
-            ComputerName = new ComputerName();
-        }
         public int RunAndReturnIP()
         {
             Console.WriteLine(GetIpAddress());
@@ -23,7 +17,7 @@ namespace TaskExecutor.MachineInformation.TaskExecutorLibrary
         }
         public string GetIpAddress()
         {
-            return Dns.GetHostByName(ComputerName.GetComputerName()).AddressList[0].ToString();
+            return Dns.GetHostByName(Dns.GetHostName()).AddressList[0].ToString();
         }
     }
 }

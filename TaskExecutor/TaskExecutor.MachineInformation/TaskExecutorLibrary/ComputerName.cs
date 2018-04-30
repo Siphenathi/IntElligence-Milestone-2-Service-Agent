@@ -14,7 +14,7 @@ namespace TaskExecutor.MachineInformation.TaskExecutorLibrary
         }
         public string GetComputerName()
         {
-            return Dns.GetHostName();
+            return Environment.MachineName;
         }
 
        

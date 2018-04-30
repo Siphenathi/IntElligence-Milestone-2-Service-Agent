@@ -37,10 +37,8 @@
       <HintPath>..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Nancy, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Nancy.1.4.1\lib\net40\Nancy.dll</HintPath>
-    </Reference>
-    <Reference Include="Nancy.Hosting.Self, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nancy.Hosting.Self.1.4.1\lib\net40\Nancy.Hosting.Self.dll</HintPath>
     </Reference>
     <Reference Include="Nancy.Testing, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nancy.Testing.1.4.1\lib\net40\Nancy.Testing.dll</HintPath>
@@ -57,6 +55,10 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management.Automation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Management.Automation.6.1.7601.17515\lib\net45\System.Management.Automation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -91,9 +93,9 @@
       <Project>{0b00ec2c-8a47-4385-8a57-0470dbebe3a9}</Project>
       <Name>Service_Agent_Console</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TaskExecutor.Boundary\TaskExecutor.Boundary.csproj">
-      <Project>{BF93D868-EEAB-42A3-B888-F303C83C050D}</Project>
-      <Name>TaskExecutor.Boundary</Name>
+    <ProjectReference Include="..\TaskExecutor.Boundary\Boundaries.csproj">
+      <Project>{bf93d868-eeab-42a3-b888-f303c83c050d}</Project>
+      <Name>Boundaries</Name>
     </ProjectReference>
     <ProjectReference Include="..\TaskExecutor.MachineInformation\TaskExecutor.MachineInformation.csproj">
       <Project>{9D8CC8BD-70A7-4548-8DC9-A933A507D150}</Project>

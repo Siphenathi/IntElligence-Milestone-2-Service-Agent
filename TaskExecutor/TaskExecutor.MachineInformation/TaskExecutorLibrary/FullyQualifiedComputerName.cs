@@ -10,12 +10,7 @@ namespace TaskExecutor.MachineInformation.TaskExecutorLibrary
 {
     public class FullyQualifiedComputerName:IFullyQualifiedComputerName
     {
-        private readonly IComputerName _computer;
-
-        public FullyQualifiedComputerName()
-        {
-            _computer = new ComputerName();
-        }
+        private readonly ComputerName _computer = new ComputerName();
 
         public string GetFullyQualifiedComputerName()
         {
@@ -23,5 +18,6 @@ namespace TaskExecutor.MachineInformation.TaskExecutorLibrary
             var hostEntry = Dns.GetHostEntry(hostname);
             return hostEntry.HostName;
         }
+
     }
 }

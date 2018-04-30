@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaskExecutor.Boundary
+namespace ServiceAgent.Model
 {
-    public interface IPowershellScript
+    public class IpModel
     {
-        string GetScriptOutput(string command);
+        public string IpAddress { get; set; }
     }
 }
