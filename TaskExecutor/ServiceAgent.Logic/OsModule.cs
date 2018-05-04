@@ -13,10 +13,14 @@ namespace ServiceAgent.Logic
     {
         public OsModule(IOperatingSystems operatingSystem)
         {
-            Get["/os"] = parameters =>
+            ExecuteOsEndPoint(operatingSystem);
+        }
+
+        private void ExecuteOsEndPoint(IOperatingSystems operatingSystem)
+        {
+            Get["/api/os"] = parameters =>
             {
-                var model = new OsModel();
-                model.osVersion = operatingSystem.GetOperatingSystem();
+                var model = new OsModel { osVersion = operatingSystem.GetOperatingSystem() };
                 return Negotiate.WithStatusCode(HttpStatusCode.OK)
                     .WithModel(model);
             };

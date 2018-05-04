@@ -14,10 +14,14 @@ namespace ServiceAgent.Logic
     {
         public IpModule(IIpAddress ipAddress)
         {
-            Get["/ip"] = parameters =>
+            ExecuteIpAddressEndPoint(ipAddress);
+        }
+
+        private void ExecuteIpAddressEndPoint(IIpAddress ipAddress)
+        {
+            Get["/api/ip"] = parameters =>
             {
-                var model = new IpModel();
-                model.IpAddress = ipAddress.GetIpAddress();
+                var model = new IpModel { IpAddress = ipAddress.GetIpAddress() };
                 return Negotiate.WithStatusCode(HttpStatusCode.OK)
                     .WithModel(model);
 

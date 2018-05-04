@@ -18,13 +18,14 @@ namespace TaskExecutor.Tests
         public void GetScriptOutput_GivenScriptCommand_ShouldReturnScriptOutput()
         {
             //Arrange
-            PowershellScript result = CreateMachineInformation();
+            PowershellScript powershell = CreateMachineInformation();
             var path = string.Empty;
             var myDirectory = new DirectoryInfo(TestContext.CurrentContext.TestDirectory).Parent.Parent.Parent;
             path = $"{myDirectory.FullName}\\TaskExecutor.MachineInformation\\bin\\Debug\\TaskExecutorScript\\HelloWorld.ps1";
+            var command = powershell.ReadFile(path);
 
             //Act
-            var actual = result.GetScriptOutput(path);
+            var actual = powershell.GetScriptOutput(command);
 
             //Assert
             var expected = "Hello world";
@@ -35,14 +36,16 @@ namespace TaskExecutor.Tests
         public void GetScriptOutput_GivenInvalidScriptCommand_ShouldReturnScriptOutput()
         {
             //Arrange
-            PowershellScript result = CreateMachineInformation();
+            PowershellScript powershell = CreateMachineInformation();
 
             var path = string.Empty;
             var myDirectory = new DirectoryInfo(TestContext.CurrentContext.TestDirectory).Parent.Parent.Parent;
             path = $"{myDirectory.FullName}\\TaskExecutor.MachineInformation\\bin\\Debug\\TaskExecutorScript\\Invalid.ps1";
+            var command = powershell.ReadFile(path);
 
             //Act
-            var actual = result.GetScriptOutput(path);
+            
+            var actual = powershell.GetScriptOutput(command);
 
             //Assert
             var expected = "The term \'hello\' is not recognized as the name of a cmdlet, function, script file, or operable program. " +
@@ -54,13 +57,5 @@ namespace TaskExecutor.Tests
         {
             return new PowershellScript();
         }
-
-        //private string GetScriptPath()
-        //{
-        //    var executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-        //    var xslLocation = Path.Combine(executableLocation, "Emtpy.ps1");
-        //    return xslLocation;
-        //}
     }
 }

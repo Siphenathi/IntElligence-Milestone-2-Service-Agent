@@ -11,7 +11,12 @@ namespace ServiceAgent.Logic
     {
         public HealthModule()
         {
-            Get["/health"] = p =>  HttpStatusCode.OK;
+            ExecuteHealthEndPoint();
+        }
+
+        private void ExecuteHealthEndPoint()
+        {
+            Get["/api/health"] = p => HttpStatusCode.OK;
         }
     }
 }

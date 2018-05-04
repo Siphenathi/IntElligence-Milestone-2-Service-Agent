@@ -15,18 +15,43 @@ namespace ServiceAgent.Logic
     {
         public ScriptModule(IPowershellScript powershellScript)
         {
-            Post["/script"] = parameters =>
+            ExecuteScriptEndPoint(powershellScript);
+        }
+
+        public void ExecuteScriptEndPoint(IPowershellScript powershellScript)
+        {
+            Post["/api/script"] = parameters =>
             {
 
-                var scriptContent = this.Bind<ScriptModel>();
+                var scriptContent = (this).Bind<ScriptModel>();
+
+                if (IsNotValid(scriptContent))
+                    return Negotiate.WithStatusCode(HttpStatusCode.BadRequest);
+
                 var command = scriptContent.Script;
 
-                    scriptContent.Script = powershellScript.GetScriptOutput(command);
+                scriptContent.Script = powershellScript.GetScriptOutput(command);
+
+                if (IsNotRecognized(scriptContent))
+                {
+                    return Negotiate.WithStatusCode(HttpStatusCode.BadRequest)
+                        .WithModel(scriptContent);
+                }
 
                 return Negotiate.WithStatusCode(HttpStatusCode.OK)
                     .WithModel(scriptContent);
-                ;
+
             };
+        }
+
+        private static bool IsNotRecognized(ScriptModel scriptContent)
+        {
+            return scriptContent.Script.Contains("is not recognized");
+        }
+
+        private static bool IsNotValid(ScriptModel scriptContent)
+        {
+            return string.IsNullOrEmpty(scriptContent.Script);
         }
     }
 }

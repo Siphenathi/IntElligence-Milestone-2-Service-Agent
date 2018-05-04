@@ -46,6 +46,7 @@ namespace Service_Agent_Console
                 with.Module<HealthModule>();
                 with.Module<HostnameModule>();
                 with.Dependency<IComputerName>(typeof(ComputerName));
+                with.Dependency<IFullyQualifiedComputerName>(typeof(FullyQualifiedComputerName));
                 with.Module<IpModule>();
                 with.Dependency<IIpAddress>(typeof(IpAddress));
                 with.Module<OsModule>();

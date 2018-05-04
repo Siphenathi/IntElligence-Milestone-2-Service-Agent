@@ -6,6 +6,6 @@ namespace TaskExecutor.MachineInformation.TaskExecutorOptions
     public class PCOptions
     {
         [Option('f', "fully-qualified", HelpText = "Get the fully qualified computer name")]
-        public bool FullyQualifiedHostName { get; set; } 
+        public bool FullyQualified { get; set; } 
     }
 }

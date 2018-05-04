@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceAgent.Model
+namespace TaskExecutor.Boundary
 {
-    public class HostNameModel
+    public interface IOperatingSystem
     {
-        public string HostName { get; set; }
-
+        string GetOperatingSystem();
     }
 }

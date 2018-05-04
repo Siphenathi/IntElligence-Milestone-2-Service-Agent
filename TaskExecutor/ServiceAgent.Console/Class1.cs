@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServiceAgent.Model
+namespace ServiceAgent.Console
 {
-    public class HostNameModel
+    class Class1
     {
-        public string HostName { get; set; }
-
     }
 }
